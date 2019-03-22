@@ -1,6 +1,11 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>Welcome to {{ title.toUpperCase() }}!</h1>
-</div>
+<p *ngIf="errorMessage" style="font-weight: bold; color: red">{{ errorMessage }}</p>
+<p *ngFor="let car of cars">
+  {{ car.brand }} {{ car.name }}
+  <button (click)="deleteCar(car.id)">Delete</button>
+  <button (click)="updateCar(car.id)">Update</button>
+</p>
+
+<button (click)="getCars()">Load Cars</button>
+<button (click)="addCar()">Add Car</button>
 
 <router-outlet></router-outlet>
